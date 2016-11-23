@@ -15,10 +15,10 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/imagesearch/:query', (req, res) => {
-  let query = req.params.query;
-  let page = req.query.offset;
-  let time = moment(new Date).unix();
-  let url = `https://api.imgur.com/3/gallery/search/time/${page}?q_all=${query}`;
+  const query = req.params.query;
+  const page = req.query.offset;
+  const time = moment(new Date).unix();
+  const url = `https://api.imgur.com/3/gallery/search/time/${page}?q_all=${query}`;
 
   // Track the user searches
   const entry = new History({term: query, when: time});
